@@ -17,6 +17,7 @@ spec:
         image: oyodocacr.azurecr.io/snarendevops/docker:latest
         ports:
         - containerPort: 5000
+      imagePullPolicy: Always
 # service type loadbalancer       
 ---
 apiVersion: v1
