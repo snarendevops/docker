@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginxweb
-        image: oyodocacr.azurecr.io/docker:latest
+        image: oyodocacr.azurecr.io/default/nginx:latest
         ports:
         - containerPort: 5000
 # service type loadbalancer       
