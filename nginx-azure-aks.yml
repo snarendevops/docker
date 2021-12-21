@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: oyodocacr.azurecr.io/snarendevops/nginx:latest
+        image: oyodocacr.azurecr.io/snarendevops/docker:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
