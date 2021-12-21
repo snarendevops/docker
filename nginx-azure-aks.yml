@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginxweb
-        image: oyodocacr.azurecr.io/nginx:#{Build.BuildId}#
+        image: oyodocacr.azurecr.io/snarendevops/docker:#{Build.BuildId}#
         ports:
         - containerPort: 5000
 # service type loadbalancer       
