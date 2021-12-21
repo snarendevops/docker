@@ -13,10 +13,10 @@ spec:
         app: my-nginx-app
     spec:
       containers:
-      - name: nginxweb
+      - name: nginx
         image: oyodocacr.azurecr.io/default/nginx:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 8080
 # service type loadbalancer       
 ---
 apiVersion: v1
@@ -28,6 +28,6 @@ spec:
     app: my-nginx-app
   ports:
     - protocol: TCP
-      port: 5000
-      targetPort: 5000
+      port: 8080
+      targetPort: 8080
   type: LoadBalancer
