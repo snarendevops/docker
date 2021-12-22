@@ -1,32 +1,77 @@
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
+
   name: my-nginx-deployment
+
 spec:
-  replicas: 2
+
+  replicas: 1
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+
+      maxSurge: 1
+
+      maxUnavailable: 1
+
+  minReadySeconds: 5 
   selector:
     matchLabels:
       app: my-nginx-app
   template:
+
     metadata:
+
       labels:
+
         app: my-nginx-app
+
     spec:
+
       containers:
+
       - name: my-nginx-app
+
         image: oyodocacr.azurecr.io/snarendevops/docker:latest
+
         imagePullPolicy: Always
+
         ports:
-        - containerPort: 8080
-# service type loadbalancer       
+
+        - containerPort: 80
+
+        resources:
+
+          requests:
+
+            cpu: 250m
+
+          limits:
+
+            cpu: 500m
+
+
 ---
+
 apiVersion: v1
+
 kind: Service
+
 metadata:
+
   name: my-nginx-app-svc
+
 spec:
+
+  type: LoadBalancer
+
+  ports:
+
+  - port: 80
+
   selector:
     app: my-nginx-app
-  ports:
-    - port: 8080
-  type: LoadBalancer
