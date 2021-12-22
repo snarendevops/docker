@@ -13,7 +13,7 @@ spec:
         app: my-nginx-app
     spec:
       containers:
-      - name: nginx
+      - name: my-nginx-app
         image: oyodocacr.azurecr.io/snarendevops/docker:latest
         imagePullPolicy: Always
         ports:
